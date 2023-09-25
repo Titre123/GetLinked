@@ -1,23 +1,26 @@
 import Logo from "../logoUI/logo";
+import { NavLink, useNavigate } from "react-router-dom";
 
-export default function ContactNavbar() {
+export default function ContactNavbar(props) {
+  console.log(props.current)
+  const navigate = useNavigate();
   return (
     <>
       <nav className="hidden lg:flex justify-between border-b-white pt-[32px] pb-5 items-center">
         <Logo />
         <div className="flex items-center gap-16 xl:gap-24 font-montserrat">
           <ul className="flex gap-8 items-center">
-            <li className="text-white text-base font-normal">Timeline</li>
-            <li className="text-white text-[14px] font-normal">Overview</li>
-            <li className="text-white text-[14px] font-normal">FAQs</li>
-            <li className="text-white text-[14px] font-normal">Contact</li>
+            <li className={`${props.current === 'timeline' ? 'gradient-text' : 'text-white'}`}><NavLink to="">Timeline</NavLink></li>
+            <li className={`${props.current === 'overview' ? 'gradient-text' : 'text-white'}`}><NavLink to="">Overview</NavLink></li>
+            <li className={`${props.current === 'faqs' ? 'gradient-text' : 'text-white'}`}><NavLink to="">FAQs</NavLink></li>
+            <li className={`${props.current === 'contact' ? 'gradient-text' : 'text-white'}`}><NavLink to="/contact">Contact</NavLink></li>
           </ul>
-          <button className="px-12 py-3 gradient-bg rounded justify-center items-center flex">
+          <button className={`px-12 py-3 ${props.current === 'register' ? 'gradient-border' : 'gradient-bg'} rounded justify-center items-center flex`} onClick={() => navigate('/register')}>
             <span className="text-white text-[14px] font-normal">Register</span>
           </button>
         </div>
       </nav>
-      <div className="lg:hidden pt-[24px] pb-6">
+      <button className={`lg:hidden pt-[24px] pb-6 ${props.loc === 'register' ? 'hidden' : ''}`} onClick={() => navigate('/')}>
         <svg
           width="23"
           height="23"
@@ -50,7 +53,7 @@ export default function ContactNavbar() {
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </button>
     </>
   );
 }

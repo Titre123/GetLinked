@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux"; 
 import { useDispatch } from "react-redux";
 import Navbar from "../components/navbar/navbar";
 import HeroSection from "../components/hero_section/hero_section";
@@ -14,23 +15,35 @@ import FooterSection from "../components/footer/footer_section";
 
 export default function Homepage() {
   const dispatch = useDispatch();
+  const state = useSelector(state => state);
+  const [toggleMobile, setToggleMobile] = useState(false);
+
+  const handleOpen = () => {
+    console.log('open')
+    setToggleMobile(true);
+  }
+
+  const closeToggle = () => {
+    console.log('close')
+    setToggleMobile(false);
+  }
 
   return (
     <div className="min-h-screen bg-primary-400 max-w-screen">
       <section className="h-screen overflow-hidden">
         <div className="Navbar">
           <div className="mx-auto container px-6 xl:max-w-[1280px]">
-            <Navbar />
+            <Navbar current={state.current} handleOpen={handleOpen} toggleMobile={toggleMobile} closeToggle={closeToggle}/>
           </div>
           <hr className="w-screen h-[0px] border border-white border-opacity-20" />
         </div>
-        <div>
+        <div onClick={() => closeToggle()}>
           <div className="HeroSection container mx-auto px-6 xl:max-w-[1280px]">
             <HeroSection />
           </div>
         </div>
       </section>
-      <section className="overflow-hidden">
+      <section className="overflow-hidden" onClick={() => closeToggle()}>
         <hr className="w-screen h-[0px] border-white border border-opacity-20" />
         <div className="mx-auto container px-6 xl:max-w-[1280px]">
           <Introduction />

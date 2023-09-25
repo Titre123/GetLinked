@@ -4,19 +4,31 @@ import chain from "../../assets/chain.png";
 import Flash from "../../assets/flash.png";
 import Bulb from "../../assets/bulb.png";
 import { SlashSvg } from "../svg/svg";
+import Star from '../../assets/star.png';
+import greyStar from '../../assets/star (1).png';
+import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
     <div className="flex items-center lg:items-start flex-col gap-6 lg:justify-between h-smhero lg:h-hero">
       <div className="lg:self-end relative mt-4">
-        <p className="text-white text-base lg:text-[30px] font-bold italics">
+        <motion.p 
+        initial={{ opacity: 0, marginRight: '-100px' }}
+        animate={{opacity: 1, marginRight: 0}}
+        transition={{ duration: 1, ease: 'easeIn' }}
+        className="text-white text-base z-5 lg:text-[30px] font-bold relative italics">
           Igniting a Revolution in HR Innovation
-        </p>
+        </motion.p>
         <SlashSvg className="absolute top-100% right-0 w-[37%]"/>
       </div>
       <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 lg:justify-start h-full items-center">
-        <div className="flex flex-col gap-6 w-full">
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6 w-full relative">
+          <img src={Star} className="absolute z-1 top-[-10%] left-[50%] translate-x-[-50%] lg:top-[-25%] lg:left-[20%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px]"/>
+          <img src={greyStar} className="absolute z-1 bottom-[20%] left-[70%] w-[6px] h-[8px] lg:w-[26px] lg:h-[32px]"/>
+          <img src={greyStar} className="absolute z-1 top-[20%] left-[90%] w-[6px] h-[8px] lg:w-[26px] lg:h-[32px] lg:hidden"/>
+          <div className="hidden lg:block absolute top-[-30%] bg-[#903AFF] left-[30%] z-0 h-[40%] w-[60%] blur-[120px]"></div>
+          <div className="lg:hidden absolute top-[-20%] left-0  bg-[#903AFF] -z-0 h-[30%] w-[50%] lg:w-[40%] blur-[100px]"></div>
+          <div className="flex flex-col gap-4 z-5">
             <div className="flex flex-col items-center lg:block">
               <div className="relative self-center lg:self-start">
                 <p className="text-white text-[30px] sm:text-[40px] lg:text-[56px] xl:text-[72px] font-bold leading-[1rem] lg:leading-[2.5rem] xl:leading-[3rem] clash">
@@ -63,11 +75,13 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="relative w-full max-[1024px]:h-full lg:h-full">
-          <img src={GetlinkedMale} className="h-full w-full" />
+          <img src={GetlinkedMale} className="h-full z-5 w-full" />
           <img
             src={GetlinkedGalaxy}
-            className="absolute top-[-5%] lg:top-0 left-0 w-[80%] h-[85%]"
+            className="absolute top-[-5%] lg:top-0 z-5 left-0 w-[80%] h-[85%]"
           />
+           <div className="hidden lg:block absolute top-[20%] bg-[#903AFF] left-[40%] z-0 h-[25%] w-[30%] blur-[120px]"></div>
+           <img src={greyStar} className="absolute z-1 top-[-0%] left-[5%] hidden lg:block"/>
         </div>
       </div>
     </div>

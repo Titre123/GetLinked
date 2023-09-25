@@ -1,9 +1,24 @@
 import React from "react";
 import TimelineItem from "./timeline_item";
+import Star from "../../assets/star.png";
+import greyStar from "../../assets/star (1).png";
+import purpleStar from "../../assets/star pu.png";
 
 export default function TImeline() {
   return (
-    <div className="flex flex-col gap-16 items-center py-8">
+    <div className="flex flex-col gap-16 items-center py-8 relative">
+      <img
+          src={purpleStar}
+          className="absolute z-1 top-[5%] left-[10%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px] "
+        />
+        <img
+          src={greyStar}
+          className="absolute z-1 bottom-[50%] left-[90%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px] "
+        />
+        <img
+          src={Star}
+          className="absolute z-1 bottom-[10px] lg:bottom-[5%] left-[10%] lg:left-[10%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px] "
+        />
       <div className="self-center">
         <p className="text-white text-center text-[32px] font-bold clash">
           Timeline

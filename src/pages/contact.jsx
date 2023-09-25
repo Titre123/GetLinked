@@ -2,9 +2,12 @@ import React from "react";
 import ContactNavbar from "../components/navbar/contact_navbar";
 import { useNavigate } from "react-router-dom";
 import Share from "../components/share/share";
+import { useSelector } from "react-redux";
 
 export default function ContactPage() {
   const navigate = useNavigate();
+  const state = useSelector(state => state);
+
   return (
     <div className="h-screen lg:max-h-screen bg-primary-400 max-w-screen flex flex-col justify-center lg:block">
       <section
@@ -24,7 +27,7 @@ export default function ContactPage() {
       >
         <div className="Navbar">
           <div className="mx-auto container px-6 sm:px-12 lg:px-6 xl:max-w-[1280px]">
-            <ContactNavbar />
+            <ContactNavbar current={state.current}/>
           </div>
         </div>
         <div className="main hidden lg:flex flex-col lg:flex-row justify-between gap-y-12 mx-auto container px-6 xl:max-w-[1280px] items-center h-hero py-4 max-h-hero">

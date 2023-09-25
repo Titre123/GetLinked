@@ -1,9 +1,14 @@
 import Private from "../../assets/privacy.png";
+import Star from "../../assets/star.png";
+import greyStar from "../../assets/star (1).png";
+import purpleStar from "../../assets/star pu.png";
 
 export default function Privacy() {
   return (
-    <div className="flex flex-col lg:flex-row gap-16 py-16">
-      <div className="flex flex-col gap-8 w-full">
+    <div className="flex flex-col lg:flex-row gap-16 py-16 relative">
+      <div className="hidden lg:block absolute bottom-[10%] bg-[#903AFF] left-[-15%] z-0 h-[25%] w-[15%] blur-[120px]"></div>
+      <div className="lg:hidden absolute bottom-[50%] left-[-10%]  bg-[#903AFF] z-0 h-[20%] w-[30%] lg:w-[40%] blur-[120px]"></div>
+      <div className="flex flex-col gap-8 w-full relative z-5">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-2">
             <p className="clash leading-[32px]">
@@ -89,6 +94,30 @@ export default function Privacy() {
         </div>
       </div>
       <div className="relative w-[90%] aspect-[530/648]">
+      <img
+          src={Star}
+          className="absolute z-1 bottom-[-15%] left-[10%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px] "
+        />
+        <img
+          src={purpleStar}
+          className="absolute z-1 bottom-[10%] left-[20%] w-[10px] h-[12px] lg:w-[10px] lg:h-[12px] "
+        />
+        <img
+          src={greyStar}
+          className="absolute z-1 bottom-[0%] right-[10%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px] "
+        />
+        <img
+          src={purpleStar}
+          className="absolute z-1 top-[40%] left-[20%] w-[10px] h-[12px] lg:w-[12px] lg:h-[14px] "
+        />
+         <img
+          src={purpleStar}
+          className="absolute z-1 top-[40%] right-[20%] w-[10px] h-[12px] lg:w-[12px] lg:h-[14px] "
+        />
+        <img
+          src={greyStar}
+          className="absolute z-1 top-[30%] right-[55%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px] "
+        />
         <svg
           viewBox="0 0 530 648"
           fill="none"

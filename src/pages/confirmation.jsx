@@ -3,7 +3,7 @@ import SuccessDone from "../assets/successfully-done-5108472-4288033 1.png";
 
 export default function ConfirmationModal(props) {
   return (
-    <div className="h-screen  px-4 lg:px-0 flex justify-center items-center">
+    <div className="h-screen px-4 lg:px-0 flex justify-center items-center">
       <div className="border border-fuchsia-500 flex flex-col px-6 py-8 gap-y-6 justify-center">
         <div className="relative self-center">
           <img src={SuccessDone} />

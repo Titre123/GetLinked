@@ -1,11 +1,22 @@
 import Logo from "../logoUI/logo";
+import Star from "../../assets/star.png";
+import greyStar from "../../assets/star (1).png";
+import purpleStar from "../../assets/star pu.png";
 
 export default function FooterSection() {
   return (
-    <div className="py-12 flex flex-col justify-center gap-8 w-full">
+    <div className="py-12 flex flex-col justify-center gap-8 w-full relative">
+      <img
+            src={purpleStar}
+            className="absolute z-1 bottom-[30%] left-[50%] w-[10px] h-[12px] lg:w-[15px] lg:h-[18px] "
+          />
       <div className="self-center flex flex-col gap-6 md:flex-row md:gap-0 justify-between w-max md:w-full min-h-[20vh]">
         <div className="flex flex-col gap-y-6 justify-between w-max ">
-          <div className="flex flex-col gap-2 gap-y-3">
+          <div className="flex flex-col gap-2 gap-y-3 relative">
+            <img
+              src={Star}
+              className="absolute z-1 top-[0%] left-[-8%] w-[10px] h-[12px] lg:w-[15px] lg:h-[18px] "
+            />
             <Logo />
             <div className="text-white text-xs font-normal font-['Montserrat'] leading-normal w-full max-[320px]:max-w-[260px] max-w-[300px] sm:max-w-[400px]">
               Getlinked Tech Hackathon is a technology innovation program
@@ -27,13 +38,13 @@ export default function FooterSection() {
             Overview
           </li>
           <li className="text-white text-xs font-normal font-['Montserrat'] leading-tight">
-          Timeline
+            Timeline
           </li>
           <li className="text-white text-xs font-normal font-['Montserrat'] leading-tight">
             FAQs
           </li>
           <li className="text-white text-xs font-normal font-['Montserrat'] leading-tight">
-          Register
+            Register
           </li>
           <li className="flex gap-2 items-center">
             <p className="text-fuchsia-500 text-xs font-normal font-['Montserrat']">
@@ -93,7 +104,16 @@ export default function FooterSection() {
             </svg>
           </li>
         </ul>
-        <div className="flex flex-col gap-y-3 justify-between w-max">
+        <div className="flex flex-col gap-y-3 justify-between w-max relative">
+          <img
+            src={Star}
+            className="absolute z-1 bottom-[2%] left-[100%] w-[10px] h-[12px] lg:w-[15px] lg:h-[18px] "
+          />
+          <img
+            src={greyStar}
+            className="absolute z-1 top-[0%] left-[-35%] w-[10px] h-[12px] lg:w-[18px] lg:h-[18px] "
+          />
+
           <p className="text-fuchsia-500 text-sm font-semibold font-['Montserrat'] leading-normal">
             Contact Us
           </p>
@@ -132,11 +152,19 @@ export default function FooterSection() {
                 fill="#F8F8F8"
               />
             </svg>
-            <p className="text-white text-xs font-normal font-['Montserrat'] leading-[18.95px]">27,Alara Street<br/>Yaba 100012<br/>Lagos State</p>
+            <p className="text-white text-xs font-normal font-['Montserrat'] leading-[18.95px]">
+              27,Alara Street
+              <br />
+              Yaba 100012
+              <br />
+              Lagos State
+            </p>
           </div>
         </div>
       </div>
-      <p className="self-center text-white text-xs font-normal font-['Montserrat']">All rights reserved. © getlinked Ltd.</p>
+      <p className="self-center text-white text-xs font-normal font-['Montserrat']">
+        All rights reserved. © getlinked Ltd.
+      </p>
     </div>
   );
 }

@@ -31,6 +31,45 @@ select {
     background: linear-gradient(270deg, #903AFF 0%, #FE34B9 100%);
 }
 
+.gradient-text {
+  background-image: linear-gradient(270deg, #903AFF 0%, #FE34B9 100%);
+  -webkit-background-clip: text; /* For Safari/WebKit browsers */
+  background-clip: text;
+  color: transparent; /* Hide the actual text color */
+}
+
+.gradient-border {
+  border-width: 1px; /* Set the border width */
+  border-style: solid; /* Set the border style to solid */
+  border-image: linear-gradient(270deg, #903AFF 0%, #FE34B9 100%); /* Define the gradient as the border image */
+  border-image-slice: 1; /* Set the slice value to cover the entire border */
+  width: fit-content; /* Make the element's width fit its content */
+}
+
+.opaque {
+  background: rgba(21, 14, 40, 0.93);
+}
+
+.nav_mobile {
+  border-radius: 8px;
+border: 0.5px solid rgba(255, 255, 255, 0.04);
+background: #150E28;
+backdrop-filter: blur(30px)
+}
+
+.bg-purple {
+  background: url('./assets/Purple-Lens-Flare-PNG.png'), no-repeat;
+  background-blend-mode: hard-light;
+}
+
+.z-0 {
+  z-index: -0;
+}
+
+.z-5 {
+  z-index: 5;
+}
+
 .dashed {
   border-style: dashed;
 }

@@ -1,40 +1,19 @@
-import { TOGGLE_MOBILE, 
-  PRODUCT_ARIA_EXPANDED, 
-  RESOURCE_ARIA_EXPANDED,
-  ARIA_UNEXPANDED } from "../constants/landing_constants";
+import {
+  ARIA_CURRENT,
+} from "../constants/landing_constants";
 
 const initialState = {
   toggleMobile: false,
-  productExpanded: false,
-  resourceExpanded: false
+  current: ''
 };
 
 const landingPageReducer = (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE_MOBILE:
+    case ARIA_CURRENT: {
       return {
         ...state,
-        toggleMobile: !state.toggleMobile,
+        current: action.payload
       };
-    case PRODUCT_ARIA_EXPANDED:
-        return {
-            ...state,
-            productExpanded: !state.productExpanded,
-            resourceExpanded: false
-        }
-    case RESOURCE_ARIA_EXPANDED:
-        return {
-            ...state,
-            resourceExpanded: !state.resourceExpanded,
-            productExpanded: false
-        }
-    case ARIA_UNEXPANDED:{
-      return {
-        ...state,
-        resourceExpanded: false,
-        productExpanded: false,
-        toggleMobile: false
-      }
     }
     default:
       return state;
