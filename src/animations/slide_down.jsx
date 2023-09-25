@@ -1,16 +1,34 @@
-import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 
-export default function SlideUp({children, isVisible}) {
+export function SlideDown({ children, delay }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const width = window.innerWidth;
+
+  const variants = {
+    hidden: { opacity: 0, y: -75 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView]);
+
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeIn' } }}
-          exit={{ x: 100, opacity: 0, transition: { duration: 5, ease: 'easeOut' } }}
-        >{children}</motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate={controls}
+      transition={{ duration: 0.75, delay }}
+      ref={ref}
+      className="w-full"
+    >
+      {children}
+    </motion.div>
   );
 }
