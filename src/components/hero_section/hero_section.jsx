@@ -6,23 +6,55 @@ import Bulb from "../../assets/bulb.png";
 import { SlashSvg } from "../svg/svg";
 import Star from '../../assets/star.png';
 import greyStar from '../../assets/star (1).png';
-import { motion } from "framer-motion";
+import React, { useRef, useEffect } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 export default function HeroSection() {
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const width = window.innerWidth;
+
+  const leftvariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
+    transition: {duration: 5, ease: 'easeIn'}
+  };
+
+  const rightvariants = {
+    hidden: { opacity: 0, x: 100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  const variants = {
+    hidden: { opacity: 0, y: 75 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView]);
+
   return (
     <div className="flex items-center lg:items-start flex-col gap-6 lg:justify-between h-smhero lg:h-hero">
       <div className="lg:self-end relative mt-4">
         <motion.p 
         initial={{ opacity: 0, marginRight: '-100px' }}
         animate={{opacity: 1, marginRight: 0}}
-        transition={{ duration: 1, ease: 'easeIn' }}
+        transition={{ duration: 1, ease: 'easeIn', delay: 0.5 }}
         className="text-white text-base z-5 lg:text-[30px] font-bold relative italics">
           Igniting a Revolution in HR Innovation
         </motion.p>
         <SlashSvg className="absolute top-100% right-0 w-[37%]"/>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 lg:justify-start h-full items-center">
-        <div className="flex flex-col gap-6 w-full relative">
+      <motion.div ref={ref} variants={window.innerWidth < 1024 ? variants : {}} initial='hidden' animate={controls} transition={{duration: 1, ease: 'easeIn'}}
+       className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-0 lg:justify-start h-full items-center">
+        <motion.div variants={window.innerWidth >= 1024 ? leftvariants : {}} initial='hidden' animate={controls} transition={{duration: 1, ease: 'easeIn'}} className="flex flex-col gap-6 w-full relative">
           <img src={Star} className="absolute z-1 top-[-10%] left-[50%] translate-x-[-50%] lg:top-[-25%] lg:left-[20%] w-[10px] h-[12px] lg:w-[26px] lg:h-[32px]"/>
           <img src={greyStar} className="absolute z-1 bottom-[20%] left-[70%] w-[6px] h-[8px] lg:w-[26px] lg:h-[32px]"/>
           <img src={greyStar} className="absolute z-1 top-[20%] left-[90%] w-[6px] h-[8px] lg:w-[26px] lg:h-[32px] lg:hidden"/>
@@ -73,8 +105,8 @@ export default function HeroSection() {
               </span>
             </p>
           </div>
-        </div>
-        <div className="relative w-full max-[1024px]:h-full lg:h-full">
+        </motion.div>
+        <motion.div variants={window.innerWidth >= 1024 ? rightvariants : {}} initial='hidden' animate={controls}  transition={{duration: 1, ease: 'easeIn'}} className="relative w-full max-[1024px]:h-full lg:h-full">
           <img src={GetlinkedMale} className="h-full z-5 w-full" />
           <img
             src={GetlinkedGalaxy}
@@ -82,8 +114,8 @@ export default function HeroSection() {
           />
            <div className="hidden lg:block absolute top-[20%] bg-[#903AFF] left-[40%] z-0 h-[25%] w-[30%] blur-[120px]"></div>
            <img src={greyStar} className="absolute z-1 top-[-0%] left-[5%] hidden lg:block"/>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
