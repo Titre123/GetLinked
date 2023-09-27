@@ -122,7 +122,7 @@ export default function Attributes() {
               introduces innovative features.
             </span>
           </motion.p>
-          <motion.p className={`${isInView && animationStart.two ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 1 }}>
+          <motion.p className={`${isInView && animationStart.two ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 0.5 }}>
             <span className="text-pink-500 text-base font-bold font-['Montserrat'] leading-normal">
               Functionality:
             </span>
@@ -133,7 +133,7 @@ export default function Attributes() {
               consider the completeness and robustness of the solution.
             </span>
           </motion.p>
-          <motion.p className={`${isInView && animationStart.three ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 2 }}>
+          <motion.p className={`${isInView && animationStart.three ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 1 }}>
             <span className="text-pink-500 text-base font-bold font-['Montserrat'] leading-normal">
               Impact and Relevance:{" "}
             </span>
@@ -144,7 +144,7 @@ export default function Attributes() {
               economic, or environmental benefits.
             </span>
           </motion.p>
-          <motion.p className={`${isInView && animationStart.four ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 3 }}>
+          <motion.p className={`${isInView && animationStart.four ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 1.5 }}>
             <span className="text-pink-500 text-base font-bold font-['Montserrat'] leading-normal">
               Technical Complexity:{" "}
             </span>
@@ -154,7 +154,7 @@ export default function Attributes() {
               technologies or algorithms, and the scalability of the solution.
             </span>
           </motion.p>
-          <motion.p className={`${isInView && animationStart.five ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 4 }}>
+          <motion.p className={`${isInView && animationStart.five ? 'hidden' : ''}`} variants={slideVariants} initial='initial' animate={controls} transition={{duration: 3, ease: 'easeIn', delay: 2 }}>
             <span className="text-pink-500 text-base font-bold font-['Montserrat'] leading-normal">
               Adherence to Hackathon Rules:{" "}
             </span>

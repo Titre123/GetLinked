@@ -3,6 +3,7 @@ import TimelineItem from "./timeline_item";
 import Star from "../../assets/star.png";
 import greyStar from "../../assets/star (1).png";
 import purpleStar from "../../assets/star pu.png";
+import gsap from 'gsap';
 
 export default function TImeline() {
   return (
